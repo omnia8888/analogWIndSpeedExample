@@ -13,9 +13,14 @@ class windSpeedClass
 {
  protected:
 
-	 uint8_t _wSensAnalogPin;
+	 uint8_t sensorPin;
+	 float voltageMin; // Mininum output voltage from anemometer in mV.
+	 float windSpeedMin; // Wind speed in meters/sec corresponding to minimum voltage
+
+	 float voltageMax; // Maximum output voltage from anemometer in mV.
+	 float windSpeedMax; // Wind speed in meters/sec corresponding to maximum voltage
  public:
-	 windSpeedClass(uint8_t sensorAnalogPin);
+	 windSpeedClass(uint8_t sensorAnalogPin, float sensorVoltageMin = 0, float sensorVoltageMax = 5);
 	
 	 int getAnalogReadValue();
 };

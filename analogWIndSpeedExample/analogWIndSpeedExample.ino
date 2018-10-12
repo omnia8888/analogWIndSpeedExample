@@ -1,7 +1,7 @@
 
 #include "windSpeed.h"
 
-windSpeedClass windSpeed = windSpeedClass(A0);
+windSpeedClass windSpeed = windSpeedClass(A0,0,2);
 
 void setup() {
 	Serial.begin(9600);

@@ -11,14 +11,18 @@
 
 
 
-windSpeedClass::windSpeedClass(uint8_t sensorAnalogPin)
+
+windSpeedClass::windSpeedClass(uint8_t sensorAnalogPin, float sensorVoltageMin, float sensorVoltageMax)
 {
-	_wSensAnalogPin = sensorAnalogPin;
+	sensorPin = sensorAnalogPin;
+	voltageMin = sensorVoltageMin;
+	voltageMax = sensorVoltageMax;
+
 }
 
 int windSpeedClass::getAnalogReadValue()
 {
 	uint16_t val;
-	val = analogRead(_wSensAnalogPin);
+	val = analogRead(sensorPin);
 	return val;
 }
