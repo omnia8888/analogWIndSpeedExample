@@ -9,23 +9,42 @@
 	#include "WProgram.h"
 #endif
 
+//#include "src/filter_avgCalc_settings.h"
+
+
 class windSpeedClass
 {
  protected:
 
 	 uint8_t sensorPin;
-	 float voltageMin; // Mininum output voltage from anemometer in mV.
+	 float voltageMin; 
 	 float windSpeedMin; // Wind speed in meters/sec corresponding to minimum voltage
 
 	 float voltageMax; // Maximum output voltage from anemometer in mV.
 	 float windSpeedMax; // Wind speed in meters/sec corresponding to maximum voltage
  public:
-	 windSpeedClass(uint8_t sensorAnalogPin, float sensorVoltageMin = 0, float sensorVoltageMax = 5);
+	 windSpeedClass(int8_t sensorAnalogPin, //PIn number for sensor read
+		 float sensorVoltageMin = 0,// Mininum output voltage from anemometer in mV.
+		 float sensorVoltageMax = 5, 
+		 float sensorwindSpeedMin = 0, 
+		 float sensorwindSpeedMax = 32);
 	
-	 int getAnalogReadValue();
+	 int getSensorValue();
+	 float getSensorVoltage();
+	 float getSensorWindSpeed();
+private:
+	const float voltageConversionConstant = .004882814;
+	
+
+	
+	uint16_t sensorVal = 0;
+	float voltageVal = 0;
+	float windSpeedVal = 0;
+
+
 };
 
-extern windSpeedClass WindSpeed;
+//extern windSpeedClass WindSpeed;
 
 #endif
 

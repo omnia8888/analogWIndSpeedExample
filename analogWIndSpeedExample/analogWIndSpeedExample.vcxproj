@@ -133,16 +133,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\LocalHeader1.h">
+    <None Include="src\filter_avgCalc_settings.h">
       <FileType>CppCode</FileType>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="filterReadForAvgCalc.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SimpleTimer.h" />
     <ClInclude Include="windSpeed.h" />
     <ClInclude Include="__vm\.analogWIndSpeedExample.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="filterReadForAvgCalc.cpp" />
+    <ClCompile Include="SimpleTimer.cpp" />
     <ClCompile Include="windSpeed.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="analogWIndSpeedExample.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
